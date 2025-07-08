@@ -7,7 +7,7 @@ This repository is the official implementation of our paper "Rethinking Individu
 You can run the following script to configure the necessary environment:
 
 ```
-cd Individual-Fairness
+cd Individual-Fairness-Deepfake-Detection
 conda create -n IndividualFairness python=3.9.0
 conda activate IndividualFairness
 pip install -r requirements.txt
