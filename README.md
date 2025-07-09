@@ -1,13 +1,13 @@
-# Rethinking Individual Fairness in Deepfake Detection
+# Individual-Fairness-Deepfake-Detection
 _________________
 
-This repository is the official implementation of our paper "Rethinking Individual Fairness in Deepfake Detection"
+This repository is the official implementation of our paper "Rethinking Individual Fairness in Deepfake Detection", which has been accepted by ACM MM 2025.
 
 ## 1. Installation
 You can run the following script to configure the necessary environment:
 
 ```
-cd Individual-Fairness
+cd Individual-Fairness-Deepfake-Detection
 conda create -n IndividualFairness python=3.9.0
 conda activate IndividualFairness
 pip install -r requirements.txt
