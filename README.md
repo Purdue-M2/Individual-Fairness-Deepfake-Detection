@@ -1,7 +1,9 @@
 # Individual-Fairness-Deepfake-Detection
+
+Aryana Hou, Li Lin, Justin Li, Shu Hu
 _________________
 
-This repository is the official implementation of our paper "Rethinking Individual Fairness in Deepfake Detection", which has been accepted by ACM MM 2025.
+This repository is the official implementation of our paper "Rethinking Individual Fairness in Deepfake Detection", which has been accepted by **ACM MM 2025**.
 
 ## 1. Installation
 You can run the following script to configure the necessary environment:
