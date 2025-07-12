@@ -65,4 +65,16 @@ You can adjust the parameters in [`train.py`](training/train.py) to specify the 
 |------------------|-----------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Xception          | [xception.py](./training/networks/xception.py)         | [Xception: Deep learning with depthwise separable convolutions](https://openaccess.thecvf.com/content_cvpr_2017/html/Chollet_Xception_Deep_Learning_CVPR_2017_paper.html) |
 | ResNet50          | [resnet50.py](training/networks/resnet50.py)       | [Deep Residual Learning for Image Recognition](https://openaccess.thecvf.com/content_cvpr_2016/html/He_Deep_Residual_Learning_CVPR_2016_paper.html)                                                                                                                                                                                                                                                                                              |
-| EfficientNet-B3      | [efficientnetb3.py](./training/networks/efficientnetb3.py) | [Efficientnet: Rethinking model scaling for convolutional neural networks](http://proceedings.mlr.press/v97/tan19a.html)                                                                                                                                           
+| EfficientNet-B3      | [efficientnetb3.py](./training/networks/efficientnetb3.py) | [Efficientnet: Rethinking model scaling for convolutional neural networks](http://proceedings.mlr.press/v97/tan19a.html)        
+
+## 6. Citation
+Please kindly consider citing our papers in your publications as:
+```bash
+@inproceedings{hou2025individualfairness,
+  title={Rethinking Individual Fairness in Deepfake Detection},
+  author={Aryana Hou and Li Lin and Justin Li and Shu Hu},
+  booktitle={Proceedings of the 33rd ACM International Conference on Multimedia (ACM MM)},
+  year={2025}
+}
+```
+
