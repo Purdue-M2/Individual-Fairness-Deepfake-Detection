@@ -1,6 +1,6 @@
 # Individual-Fairness-Deepfake-Detection
 
-Aryana Hou, Li Lin, Justin Li, Shu Hu
+Aryana Hou (11th Grade), Li Lin, Justin Li (9th Grade), Shu Hu
 _________________
 
 This repository is the official implementation of our paper "Rethinking Individual Fairness in Deepfake Detection", which has been accepted by **ACM MM 2025**.
