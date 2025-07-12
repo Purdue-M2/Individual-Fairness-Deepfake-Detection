@@ -73,7 +73,7 @@ Please kindly consider citing our papers in your publications as:
 @inproceedings{hou2025individualfairness,
   title={Rethinking Individual Fairness in Deepfake Detection},
   author={Aryana Hou and Li Lin and Justin Li and Shu Hu},
-  booktitle={Proceedings of the 33rd ACM International Conference on Multimedia (ACM MM)},
+  conference={Proceedings of the 33rd ACM International Conference on Multimedia (ACM MM)},
   year={2025}
 }
 ```
