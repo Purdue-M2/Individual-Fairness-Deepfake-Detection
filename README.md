@@ -17,7 +17,7 @@ pip install -r requirements.txt
 
 ## 2. Dataset Preparation
 
-The FF++, Celeb-DF, DFD, DFDC with demographic annotations are from [paper](https://arxiv.org/pdf/2208.05845.pdf). The datasets can be downloaded from their official links: The FF++ dataset can be downloaded from [link](https://github.com/ondyari/FaceForensics/); DFDC from [link](https://ai.meta.com/datasets/dfdc/); DFD from [link](https://research.google/blog/contributing-data-to-deepfake-detection-research/); Celeb-DF from [link](https://github.com/yuezunli/celeb-deepfakeforensics); and AI-Face dataset from [link](https://github.com/Purdue-M2/AI-Face-FairnessBench). The train, val, and test CSVs for each dataset are available through this [link](https://drive.google.com/drive/folders/1YoSsQGO5bMxAtv0H9x-1uBeredCK8VQx?usp=drive_link).
+The FF++, Celeb-DF, DFD, DFDC, and AI-Face datasets can be downloaded from their official links: The FF++ dataset can be downloaded from [link](https://github.com/ondyari/FaceForensics/); Celeb-DF from [link](https://github.com/yuezunli/celeb-deepfakeforensics); DFD from [link](https://research.google/blog/contributing-data-to-deepfake-detection-research/); DFDC from [link](https://ai.meta.com/datasets/dfdc/); and AI-Face dataset from [link](https://github.com/Purdue-M2/AI-Face-FairnessBench). The train and test CSVs for each dataset are available through this [link](https://drive.google.com/drive/folders/1YoSsQGO5bMxAtv0H9x-1uBeredCK8VQx?usp=drive_link).
 
 ## 3. Load Pretrained Weights
 Before running the training code, make sure you load the pre-trained weights. We provide pre-trained weights under [`./training/pretrained`](./training/pretrained). 
