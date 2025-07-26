@@ -3,7 +3,7 @@
 Aryana Hou **(11th Grade)**, Li Lin, Justin Li **(9th Grade)**, Shu Hu
 _________________
 
-This repository is the official implementation of our paper "Rethinking Individual Fairness in Deepfake Detection", which has been accepted by **ACM MM 2025**.
+This repository is the official implementation of our paper ["Rethinking Individual Fairness in Deepfake Detection"'(https://arxiv.org/abs/2507.14326), which has been accepted by **ACM MM 2025**.
 
 ## 1. Installation
 You can run the following script to configure the necessary environment:
@@ -73,8 +73,9 @@ Please kindly consider citing our papers in your publications as:
 @inproceedings{hou2025individualfairness,
   title={Rethinking Individual Fairness in Deepfake Detection},
   author={Aryana Hou and Li Lin and Justin Li and Shu Hu},
-  conference={Proceedings of the 33rd ACM International Conference on Multimedia (ACM MM)},
-  year={2025}
+  booktitle={Proceedings of the 33rd ACM International Conference on Multimedia (ACM MM)},
+  year={2025},
+  doi={10.1145/3746027.3755244}
 }
 ```
 
