@@ -346,7 +346,7 @@ if __name__ == '__main__':
                             output = model(anchored_input) #for resnet & efficientnet ours model
                         else:
                             output = model(data_dict['image']) #for resnet & efficientnet naive models
-                    ce_loss, individual_loss = compute_l2_loss(output, data_dict['image'], data_dict["label"], tau, criterion)
+                    individual_loss = compute_l2_loss(output, data_dict['image'], data_dict["label"], tau, criterion)
                 
                     total_ind_loss_sum += individual_loss.item()
 
