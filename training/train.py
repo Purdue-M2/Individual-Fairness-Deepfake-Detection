@@ -231,7 +231,7 @@ if __name__ == '__main__':
 
             if mask:
                 anc = torch.cat([torch.zeros_like(data), data - r], dim=1)  # Reference masked
-                target = torch.full_like(label, 0.5)  # Uniform probability
+                target = torch.full_like(label, 0.5, dtype=torch.float)  # Uniform probability
             else:
                 anc = torch.cat([r, data - r], dim=1)  # Standard anchoring
                 target = label.float()
@@ -250,10 +250,12 @@ if __name__ == '__main__':
             outputs.to(device)
             preds = (outputs.squeeze(1).sigmoid()) >= 0.5
             if(opt.mode=='ours'):
-                ce_loss, independence_loss = compute_l2_loss(outputs, data, label, tau, criterion)
+                ce_loss = criterion(outputs.squeeze(1), target.float())
+                individual_loss = compute_l2_loss(outputs, data, label, tau, criterion)
             else:
-                ce_loss, independence_loss = compute_l1_loss(outputs, data, label, tau, criterion)
-            loss = ce_loss + lambda_val*independence_loss
+                ce_loss = criterion(outputs.squeeze(1), target.float())
+                individual_loss = compute_l1_loss(outputs, data, label, tau, criterion)
+            loss = ce_loss + lambda_val*individual_loss
             loss.backward()
             optimizer.first_step(zero_grad=True)
             
@@ -270,11 +272,11 @@ if __name__ == '__main__':
                     outputs = model(data) #for resnet & efficientnet naive models
             outputs.to(device)
             if(opt.mode=='ours'):
-                ce_loss, independence_loss = compute_l2_loss(outputs, data, label, tau, criterion)
+                ce_loss, individual_loss = compute_l2_loss(outputs, data, label, tau, criterion)
             else:
-                ce_loss, independence_loss = compute_l1_loss(outputs, data, label, tau, criterion)
-            total_ind_loss_sum += independence_loss.item()
-            loss = ce_loss + lambda_val*independence_loss
+                ce_loss, individual_loss = compute_l1_loss(outputs, data, label, tau, criterion)
+            total_ind_loss_sum += individual_loss.item()
+            loss = ce_loss + lambda_val*individual_loss
             loss.backward()
             optimizer.second_step(zero_grad=True)
 
@@ -344,9 +346,9 @@ if __name__ == '__main__':
                             output = model(anchored_input) #for resnet & efficientnet ours model
                         else:
                             output = model(data_dict['image']) #for resnet & efficientnet naive models
-                    ce_loss, independence_loss = compute_l2_loss(output, data_dict['image'], data_dict["label"], tau, criterion)
+                    ce_loss, individual_loss = compute_l2_loss(output, data_dict['image'], data_dict["label"], tau, criterion)
                 
-                    total_ind_loss_sum += independence_loss.item()
+                    total_ind_loss_sum += individual_loss.item()
 
                     pred = output  
                     pred_list += pred.cpu().numpy().tolist()

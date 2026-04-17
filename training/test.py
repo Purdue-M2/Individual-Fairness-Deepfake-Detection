@@ -252,12 +252,12 @@ if __name__ == '__main__':
                     output = model(anchored_input) #for resnet & efficientnet ours model
                 else:
                     output = model(data_dict['image']) #for resnet & efficientnet naive models
-            ce_loss, independence1_loss = compute_l1_loss(output, data_dict['image'], data_dict["label"], tau, criterion)
+            individual1_loss = compute_l1_loss(output, data_dict['image'], data_dict["label"], tau, criterion)
         
-            total_ind1_loss_sum += independence1_loss.item()
-            ce_loss, independence2_loss = compute_l2_loss(output, data_dict['image'], data_dict["label"], tau, criterion)
+            total_ind1_loss_sum += individual1_loss.item()
+            individual2_loss = compute_l2_loss(output, data_dict['image'], data_dict["label"], tau, criterion)
         
-            total_ind2_loss_sum += independence2_loss.item()
+            total_ind2_loss_sum += individual2_loss.item()
 
             pred = output  # assuming pred is the logits
             pred_list += pred.cpu().numpy().tolist()
