@@ -272,9 +272,11 @@ if __name__ == '__main__':
                     outputs = model(data) #for resnet & efficientnet naive models
             outputs.to(device)
             if(opt.mode=='ours'):
-                ce_loss, individual_loss = compute_l2_loss(outputs, data, label, tau, criterion)
+                individual_loss = compute_l2_loss(outputs, data, label, tau, criterion)
+                ce_loss = criterion(outputs.squeeze(1), target.float())
             else:
-                ce_loss, individual_loss = compute_l1_loss(outputs, data, label, tau, criterion)
+                individual_loss = compute_l1_loss(outputs, data, label, tau, criterion)
+                ce_loss = criterion(outputs.squeeze(1), target.float())
             total_ind_loss_sum += individual_loss.item()
             loss = ce_loss + lambda_val*individual_loss
             loss.backward()
