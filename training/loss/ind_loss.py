@@ -73,7 +73,7 @@ def process_image_batch(imgs):
     return fft_magnitudes
 
 def compute_l1_loss(logits, imgs, labels, tau, criterion):
-    ce_loss = criterion(logits.squeeze(1), labels.float())
+    
     batch_size = imgs.size(0)
     logits = logits.squeeze(1)
     outputs_diff = logits.unsqueeze(1) - logits.unsqueeze(0)  
@@ -83,14 +83,14 @@ def compute_l1_loss(logits, imgs, labels, tau, criterion):
     freq_diff = torch.cdist(imgs, imgs, p=2)
     # Compute hinge loss matrix
     hinge_matrix = torch.relu(outputs_dist - tau * freq_diff)
-    independence_loss = torch.sum(torch.triu(hinge_matrix, diagonal=1))
+    individual_loss = torch.sum(torch.triu(hinge_matrix, diagonal=1))
     # Normalize by number of pairs
     num_pairs = (batch_size * (batch_size - 1)) // 2
-    independence_loss = independence_loss / num_pairs if num_pairs > 0 else 0.0
-    return ce_loss, independence_loss
+    individual_loss = individual_loss / num_pairs if num_pairs > 0 else 0.0
+    return individual_loss
 
 def compute_l2_loss(logits, imgs, labels, tau, criterion):
-    ce_loss = criterion(logits.squeeze(1), labels.float())
+    
     freq_features = process_image_batch(imgs)
     batch_size = imgs.size(0)
     logits = logits.squeeze(1)
@@ -101,10 +101,10 @@ def compute_l2_loss(logits, imgs, labels, tau, criterion):
     freq_diff = torch.cdist(freq_features, freq_features, p=2)
     # Compute hinge loss matrix
     hinge_matrix = torch.relu(outputs_dist - tau * freq_diff)
-    independence_loss = torch.sum(torch.triu(hinge_matrix, diagonal=1))
+    individual_loss = torch.sum(torch.triu(hinge_matrix, diagonal=1))
 
     # Normalize by number of pairs
     num_pairs = (batch_size * (batch_size - 1)) // 2
-    independence_loss = independence_loss / num_pairs if num_pairs > 0 else 0.0
+    individual_loss = individual_loss / num_pairs if num_pairs > 0 else 0.0
 
-    return ce_loss, independence_loss
+    return individual_loss
